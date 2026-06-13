@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 15f;
     public float lifeTime = 3f;
+    public int damage = 25;
 
     private Rigidbody rb;
 
@@ -16,6 +17,12 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        collision.transform.SendMessageUpwards(
+            "TakeDamage",
+            damage,
+            SendMessageOptions.DontRequireReceiver
+        );
+
         Destroy(gameObject);
     }
 }
