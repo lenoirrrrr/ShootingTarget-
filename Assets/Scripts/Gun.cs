@@ -23,6 +23,11 @@ public class Gun : MonoBehaviour
     private Vector3 initalPosition;
     private Vector3 reloadRotationOffset = new Vector3(66, 50, 50);
 
+    [Header("Audio")]
+    public AudioSource gunAudioSource;
+    public AudioClip fireSound;
+    public AudioClip reloadSound;
+
     void Start()
     {
         currentAmmo = magSize;
@@ -44,6 +49,11 @@ public class Gun : MonoBehaviour
         nextTimeToFire = Time.time + fireRate;
         currentAmmo--;
 
+        if (gunAudioSource != null && fireSound != null)
+        {
+            gunAudioSource.PlayOneShot(fireSound);
+        }
+
         Instantiate(
             bullet,
             bulletSpawnPoint.position,
@@ -63,6 +73,11 @@ public class Gun : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
+
+        if (gunAudioSource != null && reloadSound != null)
+        {
+            gunAudioSource.PlayOneShot(reloadSound);
+        }
 
         Quaternion targetRotation =
             Quaternion.Euler(initalRotation.eulerAngles + reloadRotationOffset);

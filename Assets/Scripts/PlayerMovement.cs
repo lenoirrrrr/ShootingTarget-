@@ -15,6 +15,12 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private PlayerInput playerInput;
 
+    [Header("Audio")]
+    public AudioSource footstepAudioSource;
+    public AudioClip footstepClip;
+    public float footstepInterval = 0.5f;
+    private float footstepTimer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,6 +30,27 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         CheckGround();
+        HandleFootsteps();
+    }
+
+    void HandleFootsteps()
+    {
+        if (isGrounded && moveInput.magnitude > 0.1f && rb.linearVelocity.magnitude > 0.1f)
+        {
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0f)
+            {
+                if (footstepAudioSource != null && footstepClip != null)
+                {
+                    footstepAudioSource.PlayOneShot(footstepClip);
+                }
+                footstepTimer = footstepInterval;
+            }
+        }
+        else
+        {
+            footstepTimer = 0f;
+        }
     }
 
     private void FixedUpdate()
