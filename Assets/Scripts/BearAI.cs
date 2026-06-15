@@ -16,7 +16,7 @@ public class BearAI : MonoBehaviour
     }
 
     [Header("Health")]
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int maxHealth = 250;
     [SerializeField] private float destroyDelay = 5f;
 
     [Header("Target")]
@@ -35,6 +35,11 @@ public class BearAI : MonoBehaviour
     [SerializeField] private int attackDamage = 20;
     [SerializeField] private float attackCooldown = 1.5f;
     [SerializeField] private float attackImpactDelay = 0.45f;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource bearAudioSource;
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip hitSound;
 
     private static readonly int IdleParameter = Animator.StringToHash("Idle");
     private static readonly int WalkParameter = Animator.StringToHash("WalkForward");
@@ -58,6 +63,11 @@ public class BearAI : MonoBehaviour
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
+
+        if (bearAudioSource == null)
+        {
+            bearAudioSource = GetComponent<AudioSource>();
+        }
 
         if (player == null)
         {
@@ -172,6 +182,11 @@ public class BearAI : MonoBehaviour
 
         currentHealth -= damage;
 
+        if (bearAudioSource != null && hitSound != null)
+        {
+            bearAudioSource.PlayOneShot(hitSound);
+        }
+
         if (currentHealth <= 0)
         {
             Die();
@@ -248,6 +263,11 @@ public class BearAI : MonoBehaviour
         if (Time.time < nextAttackTime)
         {
             return;
+        }
+
+        if (bearAudioSource != null && attackSound != null)
+        {
+            bearAudioSource.PlayOneShot(attackSound);
         }
 
         animator.SetTrigger(AttackParameter);

@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private Image healthFill;
     [SerializeField] private Image hitFlash;
+    [SerializeField] private GameObject gameOverPanel;
 
     private int currentHealth;
     private Coroutine hitFlashRoutine;
@@ -71,6 +72,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         isDead = true;
+        Debug.Log($"[PlayerHealth] Die() dipanggil! gameOverPanel: {(gameOverPanel != null ? "Terhubung" : "KOSONG/NULL")}");
 
         PlayerMovement movement = GetComponent<PlayerMovement>();
         if (movement != null)
@@ -84,10 +86,30 @@ public class PlayerHealth : MonoBehaviour
             shooting.enabled = false;
         }
 
+        PlayerLook look = GetComponent<PlayerLook>();
+        if (look == null)
+        {
+            look = GetComponentInChildren<PlayerLook>();
+        }
+        if (look != null)
+        {
+            look.enabled = false;
+        }
+
         Rigidbody playerBody = GetComponent<Rigidbody>();
         if (playerBody != null)
         {
             playerBody.linearVelocity = Vector3.zero;
+        }
+
+        // Aktifkan kursor agar player bisa mengklik tombol menu
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        // Tampilkan panel Game Over
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
         }
     }
 }
