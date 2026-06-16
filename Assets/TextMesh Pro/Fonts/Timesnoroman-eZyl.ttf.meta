@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b4571caf2f726ee42884e6bd19c7fcd8
+guid: 54be9b8b849955d4cb091404ee9ac929
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Comic
+  - TimesNoRoman
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

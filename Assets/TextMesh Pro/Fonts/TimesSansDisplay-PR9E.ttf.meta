@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 657103a6dc30524439f243e8950f0e57
+guid: acca11ad90b513c4cbb8c7e0493881be
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - BLACK
+  - Times Sans
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
