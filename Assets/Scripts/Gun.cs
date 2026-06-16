@@ -54,10 +54,31 @@ public class Gun : MonoBehaviour
             gunAudioSource.PlayOneShot(fireSound);
         }
 
+        // Tembakkan ray dari tengah layar kamera (crosshair)
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        Vector3 targetPoint;
+
+        // Jika mengenai sesuatu, arahkan ke titik itu. Jika tidak, arahkan ke titik 100m di depan
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            targetPoint = hit.point;
+        }
+        else
+        {
+            targetPoint = ray.GetPoint(100f);
+        }
+
+        // Hitung arah dari moncong senjata ke target
+        Vector3 shootDirection = (targetPoint - bulletSpawnPoint.position).normalized;
+
+        // Karena Bullet.cs menggunakan -transform.right untuk bergerak maju, 
+        // kita putar rotasi awalnya agar sejajar dengan arah tembakan (LookRotation + offset 90 derajat Y)
+        Quaternion bulletRotation = Quaternion.LookRotation(shootDirection) * Quaternion.Euler(0, 90, 0);
+
         Instantiate(
             bullet,
             bulletSpawnPoint.position,
-            bulletSpawnPoint.rotation
+            bulletRotation
         );
         
         Instantiate(
