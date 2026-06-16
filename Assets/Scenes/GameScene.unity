@@ -527,7 +527,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 2983
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -546,13 +546,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.3396981, y: -0.32599142, z: -0.10470334, w: 0.87599766}
+  m_LocalPosition: {x: 0, y: 71.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 31.795, y: -49.084, z: -28.451}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   hitFlashDuration: 0.15
   healthFill: {fileID: 584766258}
   hitFlash: {fileID: 1131980921}
-  gameOverPanel: {fileID: 8634613831341701135}
+  gameOverPanel: {fileID: 5002793557208839731}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,6 +1549,7 @@ RectTransform:
   m_Children:
   - {fileID: 1182092090}
   - {fileID: 1131980920}
+  - {fileID: 6553081373069906793}
   m_Father: {fileID: 783423555}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2462,7 +2463,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5002793557208839731}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2470,7 +2471,7 @@ RectTransform:
   - {fileID: 4910763993866925329}
   - {fileID: 7244544500142090287}
   - {fileID: 6378289530560664100}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1405196108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2855,5 +2856,4 @@ SceneRoots:
   - {fileID: 447747558}
   - {fileID: 1855308195}
   - {fileID: 881550140}
-  - {fileID: 6553081373069906793}
   - {fileID: 998298694714126506}
