@@ -7,6 +7,8 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     public int health = 100;
+    public GameObject ammoPickupPrefab;
+    public int scoreValue = 50;
     private Rigidbody rb;
 
     //AI setting
@@ -53,6 +55,17 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        if (ammoPickupPrefab != null)
+        {
+            Vector3 spawnPos = transform.position + Vector3.up * 0.5f;
+            Instantiate(ammoPickupPrefab, spawnPos, Quaternion.identity);
+        }
+
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.AddScore(scoreValue);
+        }
+
         Destroy(gameObject);
     }
     

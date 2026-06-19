@@ -18,6 +18,8 @@ public class BearAI : MonoBehaviour
     [Header("Health")]
     [SerializeField] private int maxHealth = 250;
     [SerializeField] private float destroyDelay = 5f;
+    [SerializeField] private GameObject ammoPickupPrefab;
+    [SerializeField] private int scoreValue = 100;
 
     [Header("Target")]
     [SerializeField] private Transform player;
@@ -365,6 +367,19 @@ public class BearAI : MonoBehaviour
         foreach (Collider bearCollider in GetComponentsInChildren<Collider>())
         {
             bearCollider.enabled = false;
+        }
+
+        // Spawn the ammo pickup at the bear's position when it dies
+        if (ammoPickupPrefab != null)
+        {
+            Vector3 spawnPos = transform.position + Vector3.up * 0.5f;
+            Instantiate(ammoPickupPrefab, spawnPos, Quaternion.identity);
+        }
+
+        // Add score to the game manager
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.AddScore(scoreValue);
         }
 
         animator.SetBool(IdleParameter, false);

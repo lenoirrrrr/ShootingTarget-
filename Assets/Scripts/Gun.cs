@@ -5,7 +5,7 @@ public class Gun : MonoBehaviour
 {
   public float reloadTime = 1f;
     public float fireRate = 0.15f;
-    public int magSize = 20;
+    public int magSize = 30;
 
     public GameObject bullet;
     public Transform bulletSpawnPoint;
@@ -14,6 +14,10 @@ public class Gun : MonoBehaviour
 
     public float recoilDistance = 0.1f;
     public float recoilSpeed = 15f;
+
+    [Header("Ammo System")]
+    public int totalAmmo = 60;
+    public int maxCarriedAmmo = 120;
 
     private int currentAmmo;
     private bool isReloading = false;
@@ -42,7 +46,10 @@ public class Gun : MonoBehaviour
 
         if (currentAmmo <= 0)
         {
-            StartCoroutine(Reload());
+            if (totalAmmo > 0)
+            {
+                StartCoroutine(Reload());
+            }
             return;
         }
 
@@ -129,7 +136,10 @@ public class Gun : MonoBehaviour
             yield return null;
         }
 
-        currentAmmo = magSize;
+        int ammoNeeded = magSize - currentAmmo;
+        int ammoToLoad = Mathf.Min(ammoNeeded, totalAmmo);
+        totalAmmo -= ammoToLoad;
+        currentAmmo += ammoToLoad;
         isReloading = false;
     }
 
@@ -137,9 +147,17 @@ public class Gun : MonoBehaviour
     {
         if (isReloading) return;
         if (currentAmmo == magSize) return;
+        if (totalAmmo <= 0) return;
 
         StartCoroutine(Reload());
     }
+
+    public void AddAmmo(int amount)
+    {
+        totalAmmo = Mathf.Min(totalAmmo + amount, maxCarriedAmmo);
+    }
+
+    public int CurrentAmmo => currentAmmo;
 
     private IEnumerator Recoil()
     {
