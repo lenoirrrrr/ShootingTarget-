@@ -638,6 +638,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1387471503}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1352566963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3086687425650019982, guid: f3a4ad96f658d034ebcd80089252a6e1, type: 3}
+  m_PrefabInstance: {fileID: 5970778535317935838}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1387471502
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ambienceClip: {fileID: 8300000, guid: eea4e5dee5b73c240a924fd740d29a93, type: 3}
-  volume: 0.3
+  volume: 0.52
   playOnStart: 1
 --- !u!82 &1572824343
 AudioSource:
@@ -1167,6 +1172,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5978856425243603330, guid: f3a4ad96f658d034ebcd80089252a6e1, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 1352566963}
     - target: {fileID: 6074561655102656533, guid: f3a4ad96f658d034ebcd80089252a6e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
