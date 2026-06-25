@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7f32b3e76dd37a54ca295c55d3a89d33
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 205332
+  packageName: Collider-X
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/PanettoneGames/ColliderX/Editor/ColliderLimits.cs
+  uploadId: 496395

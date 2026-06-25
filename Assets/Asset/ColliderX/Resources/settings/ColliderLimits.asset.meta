@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 71b37b0915e10b845971c855e6a231dc
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 205332
+  packageName: Collider-X
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/PanettoneGames/ColliderX/Resources/settings/ColliderLimits.asset
+  uploadId: 496395

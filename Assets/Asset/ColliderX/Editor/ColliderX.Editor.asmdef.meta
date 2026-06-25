@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8fcf99ed1a1a24742ba7eba04aaebc5f
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 205332
+  packageName: Collider-X
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/PanettoneGames/ColliderX/Editor/ColliderX.Editor.asmdef
+  uploadId: 496395
